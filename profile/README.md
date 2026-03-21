@@ -4,6 +4,12 @@ SmartGuardian is a secure AI-integrated digital health application designed to s
 
 Developed by Louise Deeth as a final year B.Sc. (Hons) Software Development project at Atlantic Technological University.
 
+## System Overview
+
+SmartGuardian combines an IoT fall-detection device, a secure backend API, and a mobile-friendly web dashboard.
+
+The Raspberry Pi detects falls locally, the backend processes health data, and the frontend displays alerts and trends.
+
 ## Repositories
 
 | Repository | Description |
