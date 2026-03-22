@@ -1,24 +1,41 @@
-# Secure AI-Integrated Health Application - Final Year Project
+# SmartGuardian
 
-## Project Overview
-This project is a secure, AI-integrated digital health monitoring system combining:
-- Raspberry Pi 5 fall detection  
+Secure AI-integrated digital health monitoring system for fall detection, wearable health analysis, and emergency alerting.
+
+This Final Year Project combines IoT, AI, and secure cloud technologies to support vulnerable users and caregivers.
+
+---
+
+## System Components
+
+- Raspberry Pi 5 fall detection device  
 - Fitbit biometric data analysis  
-- Secure backend API with Spring Boot  
-- React PWA frontend  
-- End-to-end encryption & GDPR-compliant data handling
+- Spring Boot secure backend API  
+- React Progressive Web App dashboard  
+- PostgreSQL health data storage  
+
+---
 
 ## Repositories
-- **Frontend (React):**  
-  https://github.com/secure-health-app/health-app-frontend
 
-- **Backend (Spring Boot + PostgreSQL):**  
-  https://github.com/secure-health-app/health-app-backend
+| Repository | Description |
+|------------|-------------|
+| https://github.com/secure-health-app/health-app-frontend | React PWA dashboard |
+| https://github.com/secure-health-app/health-app-backend | Spring Boot REST API |
+| https://github.com/secure-health-app/pi-fall-detector | Raspberry Pi fall detection |
 
-- **Raspberry Pi Fall Detection (Python + Sensor ML Model):**  
-  https://github.com/secure-health-app/pi-fall-detector
+---
 
-  ## Author
-**Louise Deeth**  
-BSc(Hons) Software Development - Final Year Project  
+## Architecture
+
+Raspberry Pi detects falls locally and sends alerts to the backend API.  
+The backend processes health data and stores results in PostgreSQL.  
+The React frontend displays alerts, Fitbit data, and health trends.
+
+---
+
+## Author
+
+Louise Deeth  
+BSc (Hons) Software Development  
 Atlantic Technological University
