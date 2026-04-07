@@ -40,14 +40,14 @@ The Raspberry Pi detects falls locally, the backend processes health data, and t
 ```mermaid
 flowchart TB
     Client["React PWA\nDashboard"]
-    Backend["Spring Boot API\nPostgreSQL"]
+    Backend["Spring Boot Backend API\n+ PostgreSQL Database"]
     Pi["Raspberry Pi 5\nSense HAT"]
     Fitbit["Fitbit Web API"]
 
     Client <-->|HTTPS + JWT| Backend
     Pi -->|Fall Alerts\nX-Device-Key| Backend
-    Fitbit -->|Health Data| Backend
-    Backend -->|Processed Data| Client
+    Fitbit -->|Fitbit Metrics\n HR Steps Sleep| Backend
+    Backend -->|REST API Responses| Client
 ```
 
 ## Detection Architecture (Edge Device)
@@ -55,13 +55,15 @@ flowchart TB
 ```mermaid
 flowchart LR
     IMU["Sense HAT IMU"]
-    Rules["Rule-Based\nState Machine"]
     Features["Sliding Window\nFeature Extraction"]
-    Dataset["ML Dataset CSV"]
-    Alert["Secure REST Alert"]
+    ML["ML Classifier\n(Random Forest)"]
+    Rules["Rule-Based\nState Machine"]
+    Dataset["Training Dataset (CSV)"]
+    Alert["POST /api/alerts/fall"]
 
-    IMU --> Rules
     IMU --> Features
-    Features --> Dataset
+    Features --> ML
+    ML --> Rules
     Rules --> Alert
+    Features --> Dataset
 ```
