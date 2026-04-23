@@ -1,6 +1,6 @@
 # SmartGuardian
 
-SmartGuardian is a secure AI-integrated digital health application designed to support vulnerable users through real-time fall detection, long-term health analysis, and emergency alerting.
+SmartGuardian is a secure AI-integrated healthcare monitoring system designed to support vulnerable users through real-time fall detection, wearable health analysis, and emergency alerting.
 
 Developed by Louise Deeth as a final year B.Sc. (Hons) Software Development project at Atlantic Technological University.
 
@@ -9,6 +9,13 @@ Developed by Louise Deeth as a final year B.Sc. (Hons) Software Development proj
 SmartGuardian combines an IoT fall-detection device, a secure backend API, and a mobile-friendly web dashboard.
 
 The Raspberry Pi detects falls locally, the backend processes health data, and the frontend displays alerts and trends.
+
+## Application Preview
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/9de2726a-9a53-4d51-a32a-d31fbae2e7ee" width="800">
+</p>
+<p align="center"><em>User dashboard, fall confirmation workflow, caregiver emergency response</em></p>
 
 ## Repositories
 
@@ -35,6 +42,14 @@ The Raspberry Pi detects falls locally, the backend processes health data, and t
 - **Machine Learning:** Python (scikit-learn)
 - **External APIs:** Fitbit Web API
 
+## Key Results
+
+- 99.7% fall detection accuracy (Random Forest)
+- 3.74 s average end-to-end alert latency
+- Fitbit integration for heart rate, sleep and activity trends
+- SUS usability score: 97/100
+- Cloud deployment on Render
+
 ## System Architecture
 
 ```mermaid
@@ -55,15 +70,27 @@ flowchart TB
 ```mermaid
 flowchart LR
     IMU["Sense HAT IMU"]
-    Features["Sliding Window\nFeature Extraction"]
-    ML["ML Classifier\n(Random Forest)"]
-    Rules["Rule-Based\nState Machine"]
-    Dataset["Training Dataset (CSV)"]
+
+    Rules["Rule-Based Detection
+Freefall / Impact / Stillness"]
+
+    Features["Sliding Window
+Feature Extraction"]
+
+    ML["Random Forest
+Classifier"]
+
+    Decision["Hybrid Decision Logic"]
+
     Alert["POST /api/alerts/fall"]
 
+    Dataset["Training Dataset CSV"]
+
+    IMU --> Rules
     IMU --> Features
     Features --> ML
-    ML --> Rules
-    Rules --> Alert
     Features --> Dataset
+    Rules --> Decision
+    ML --> Decision
+    Decision --> Alert
 ```
