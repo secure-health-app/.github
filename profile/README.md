@@ -13,9 +13,9 @@ The Raspberry Pi detects falls locally, the backend processes health data, and t
 ## Application Preview
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/9de2726a-9a53-4d51-a32a-d31fbae2e7ee" width="800">
+  <img src="https://github.com/user-attachments/assets/6bab1671-a6b7-4cdf-841d-723ebaba740c" width="800">
 </p>
-<p align="center"><em>User dashboard, fall confirmation workflow, caregiver emergency response</em></p>
+<p align="center"><em>User dashboard, fall confirmation workflow, caregiver emergency response, acknowledged response</em></p>
 
 ## Repositories
 
